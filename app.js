@@ -4,6 +4,7 @@ const express = require("express")
 const orderRouter = require("./routes/order.routes")
 const bookRouter = require("./routes/book.routes")
 const userRouter = require("./routes/auth.routes")
+const otpRouter = require("./routes/otp.routes")
 
 const Port = 5555
 
@@ -16,6 +17,7 @@ connectDB()
 app.use("/api", orderRouter)
 app.use("/api", bookRouter)
 app.use("/api/auth", userRouter)
+app.use("/api", otpRouter)
 
 app.listen(Port, () =>{
     console.log(`Server is listen on ${Port}`)
