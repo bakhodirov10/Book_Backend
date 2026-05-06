@@ -90,7 +90,6 @@ exports.patchBook = async (req, res) => {
                 runValidators: true
             }
         )
-
         if(!book){
             return res.status(404).json({
                 message: "Book not found"
