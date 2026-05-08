@@ -5,8 +5,9 @@ const orderRouter = require("./routes/order.routes")
 const bookRouter = require("./routes/book.routes")
 const userRouter = require("./routes/auth.routes")
 const otpRouter = require("./routes/otp.routes")
+require('dotenv').config()
 
-const Port = 5555
+const Port = process.env.PORT || 5555
 
 const app = express()
 

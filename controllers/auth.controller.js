@@ -1,5 +1,6 @@
 const User = require("../models/user.model")
 const authSchema = require("../validators/auth.validator")
+const generateToken = require("../utils/generateToken")
 const bcrypt = require("bcrypt")
 
 
@@ -88,8 +89,11 @@ exports.loginUser = async (req,res) =>{
             })
         }
 
+        const token = generateToken(user)
+
         res.status(200).json({
-            message: "Successfully Logined"
+            message: "Successfully Logged In",
+            token: token
         })
     } catch (error) {
         res.status(500).json({
