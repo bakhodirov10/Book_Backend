@@ -3,6 +3,30 @@ const authSchema = require("../validators/auth.validator")
 const bcrypt = require("bcrypt")
 
 
+exports.getUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+        res.json(users)
+    } catch (error) {
+        res.status(500).json({
+            message: `Error is on getUsers: ${error.message}`
+        })
+    }
+}
+
+exports.profile = async (req, res) => {
+    try {
+        res.status(200).json({
+            message: "Protected profile",
+            user: req.user
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: `Error is on profile: ${error.message}`
+        })
+    }
+}
+
 exports.registerUser = async (req, res) =>{
     try {
         const validation = authSchema.safeParse(req.body)

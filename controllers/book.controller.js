@@ -101,6 +101,7 @@ exports.patchBook = async (req, res) => {
         res.status(500).json({
             message: `Error is on patchBook: ${error.message}`
         })
+        console.log(error.message)
     }
 }
 

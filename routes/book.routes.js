@@ -3,7 +3,7 @@ const router = express.Router()
 const bookController = require("../controllers/book.controller")
 
 router.get(
-    "/book",
+    "/books",
     bookController.getBook
 )
 
@@ -26,5 +26,11 @@ router.delete(
     "/book/:id",
     bookController.deleteBook
 )
+
+router.patch(
+    "/book/:id",
+    bookController.patchBook
+)
+
 
 module.exports = router
